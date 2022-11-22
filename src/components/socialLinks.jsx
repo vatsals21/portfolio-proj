@@ -1,7 +1,7 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import { BsFillPersonLinesFill } from "react-icons/bs";
+import { HiDocumentText } from "react-icons/hi";
 
 const SocialLinks = () => {
   const linkItems = [
@@ -21,26 +21,18 @@ const SocialLinks = () => {
       id: 3,
       value_text: "Email",
       value_icon: HiOutlineMail,
-      value_link: "https://www.linkedin.com/in/vatsal-sahay-8459a5158/",
+      value_link: "mailto:sahayvatsal@gmail.com",
     },
     {
       id: 4,
-      value_text: "Contact",
-      value_icon: BsFillPersonLinesFill,
-      value_link: "https://www.linkedin.com/in/vatsal-sahay-8459a5158/",
+      value_text: "Resume",
+      value_icon: HiDocumentText,
+      value_link: "/Vatsal_Sahay_Resume.pdf",
     },
   ];
   return (
     <div className="flex flex-col">
-      <ul>
-        {/* <li className="flex justify-between items-center">
-          <a href="#" className="flex justify-between items-center text-white">
-            <>
-              LinkedIn <FaLinkedin size={30} className="ml-3" />
-            </>
-          </a>
-        </li> */}
-
+      <ul className="grid grid-cols-2">
         {linkItems.map((item) => {
           return (
             <li
@@ -52,9 +44,10 @@ const SocialLinks = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex justify-between items-center text-white"
+                download={item.id === 4 ? true : false} // download option allows the file to be downloaded
               >
                 <>
-                  <div className="mr-7 w-20">{item.value_text}</div>
+                  <div className="mr-2 w-20">{item.value_text}</div>
                   <item.value_icon size={28} className="text-white" />
                 </>
               </a>

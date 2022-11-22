@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-scroll";
 
 const HeaderBar = () => {
   const [bar, setBar] = useState(false);
@@ -15,12 +16,13 @@ const HeaderBar = () => {
     },
     {
       id: 3,
-      value: "experience",
+      value: "projects",
     },
     {
       id: 4,
-      value: "projects",
+      value: "skills",
     },
+
     {
       id: 5,
       value: "contact",
@@ -40,7 +42,9 @@ const HeaderBar = () => {
               key={id}
               className="px-4 cursor-pointer capitalize font-medium text-gray-400 hover:scale-110 duration-200 font-roboto_slab"
             >
-              {value}
+              <Link to={value} smooth duration={500}>
+                {value}
+              </Link>
             </li>
           );
         })}
@@ -74,7 +78,14 @@ const HeaderBar = () => {
                 key={id}
                 className="px-4 cursor-pointer capitalize py-6 text-4xl hover:scale-105 duration-150 font-roboto_slab"
               >
-                {value}
+                <Link
+                  onClick={() => setBar(!bar)}
+                  to={value}
+                  smooth
+                  duration={500}
+                >
+                  {value}
+                </Link>
               </li>
             );
           })}
